@@ -32,7 +32,7 @@ void ParticleFilter::init(double x, double y, double theta, double std[]) {
    * NOTE: Consult particle_filter.h for more information about this method 
    *   (and others in this file).
    */
-  num_particles = 10;  // TODO: Set the number of particles
+  num_particles = 100;  // TODO: Set the number of particles
 
 
   //create normal distributions for sensor noise
@@ -65,8 +65,6 @@ void ParticleFilter::prediction(double delta_t, double std_pos[],
    *  http://en.cppreference.com/w/cpp/numeric/random/normal_distribution
    *  http://www.cplusplus.com/reference/random/default_random_engine/
    */
-    // particles structot kell update-elni, x,y,theta-t a marha nagy kepletbol kell kiszamolni a leckeben
-	//kell zaj is a measurementekre (mar van rajtuk, nem?)
 
 	//create normal distributions
 	  default_random_engine gen;
@@ -109,8 +107,6 @@ void ParticleFilter::dataAssociation(vector<LandmarkObs> predicted,
    *   probably find it useful to implement this method and use it as a helper 
    *   during the updateWeights phase.
    */
-	//vegig kell menni az observations array-en es mindegyik tavolsagat megnezni a predictedtol
-	//amelyik a legkisebb, azt az idt kell eltarolni
 
 	for(unsigned int i=0; i<observations.size(); i++){
 		double min_distance = 999;
